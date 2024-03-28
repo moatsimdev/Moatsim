@@ -41,8 +41,8 @@ function sendEmail() {
         email: document.getElementById('email').value ,
         message: document.getElementById('message').value ,
     }
-    const serviceId = 'service_uuy181k';
-    const templateId = 'template_b7cbr4p'
+    const serviceId = 'service_90j7j3m';
+    const templateId = 'template_v3e9dbo'
     contactRelod.classList.add('active')
     emailjs.send(serviceId,templateId,params)
     .then(
