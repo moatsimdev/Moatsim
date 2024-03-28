@@ -34,7 +34,6 @@ document.querySelectorAll('a').forEach(links =>{
     }
 
 });
-let contactRelod = document.querySelector('.contact-relod')
 const btn = document.getElementById('buttonemail');
 document.getElementById('formemail')
   .addEventListener('submit', function(event) {
@@ -47,16 +46,20 @@ document.getElementById('formemail')
     emailjs.sendForm(serviceID, templateID, this)
       .then(() => {
         btn.value = 'Send Message';
-         alert('Done Send Message successfully !');
+        alert('Done Send Message successfully !');
         setTimeout(() => {
           location.reload();
         }, 1000);
-})
+      })
       .catch((err) => {
         btn.value = 'Send Message';
-
+        alert('I cannot send  message!');
+        setTimeout(() => {
+          location.reload();
+        }, 1000);
       });
   });
+
 
 new TypeIt("#moatsim", { 
     lifeLike: false, 
