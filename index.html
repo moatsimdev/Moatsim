@@ -182,13 +182,20 @@
 
     <div class="row">
 
-<div class="row">
-    <form onsubmit="sendEmail()">
-        <input type="text" id="name" placeholder="name" class="box">
-        <input type="email" id="email" placeholder="email" class="box">
-        <textarea id="message" placeholder="message" cols="30" rows="10"></textarea>
-        <input type="submit" class="btn" value="Send">
-    </form>
+<form id="formemail">
+        <div class="box">
+          <label for="message">message</label>
+          <textarea type="text" name="message" id="message" placeholder="Enter Your Message"></textarea>
+        </div>
+        <input type="submit" id="buttonemail" value="Send Email" class="btn">
+      </form>
+
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+      <script type="text/javascript">
+        emailjs.init('cdqKOQYMTcr_JLJlR')
+
+      </script>
 </div>
 
     </div>
