@@ -35,27 +35,29 @@ document.querySelectorAll('a').forEach(links =>{
 
 });
 let contactRelod = document.querySelector('.contact-relod')
-function sendEmail() {
-    let params = {
-        name: document.getElementById('name').value ,
-        email: document.getElementById('email').value ,
-        message: document.getElementById('message').value ,
-    }
-    const serviceId = 'service_90j7j3m';
-    const templateId = 'template_v3e9dbo'
-    contactRelod.classList.add('active')
-    emailjs.send(serviceId,templateId,params)
-    .then(
-        res => {
-            if(res.status == 200){
-                setTimeout(() => {
-                    contactRelod.classList.remove('active')
-                }, 1500);
-            }
-        }
-    )
-    .catch(err=>console.log(err))
-}
+const btn = document.getElementById('buttonemail');
+document.getElementById('formemail')
+  .addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    btn.value = 'Sending Message...';
+
+    const serviceID = 'default_service';
+    const templateID = 'template_v3e9dbo';
+    emailjs.sendForm(serviceID, templateID, this)
+      .then(() => {
+        btn.value = 'Send Message';
+         alert('Done Send Message successfully !');
+        setTimeout(() => {
+          location.reload();
+        }, 1000);
+})
+      .catch((err) => {
+        btn.value = 'Send Message';
+
+      });
+  });
+
 new TypeIt("#moatsim", { 
     lifeLike: false, 
     speed: 0 
